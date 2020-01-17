@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+            "@/*": [
+                "*"
+            ],
+            "icon/*": [
+                "assets/icon/*"
+            ],
+            "img/*": [
+                "assets/img/*"
+            ],
+            "types/*": [
+                "types/*"
+            ],
+            "consts": [
+                "utils/consts.ts"
+            ],
+            "api/*": [
+                "api/*"
+            ]
+        }
+    }
+}
