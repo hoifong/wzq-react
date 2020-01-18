@@ -1,3 +1,13 @@
 import React from 'react';
+import Background from './components/Background';
+import Page from '@/components/Page';
+import LoginBox from './components/LoginBox';
+import styles from './index.module.scss';
 
-export default () => (<h1>首页</h1>);
+export default () => (
+    <Page className={styles.root}>
+        <Background />
+        <LoginBox />
+        
+    </Page>
+);
