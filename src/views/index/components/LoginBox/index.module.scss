@@ -1,24 +1,107 @@
-.loginBox {
-    width: 400px;
-    margin: 0 200px;
-    box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
+$darkColor: #222222;
+$lightColor: #aaaaaa;
+
+.title {
+    color: $darkColor;
+}
+
+.tip {
+    text-decoration: underline;
+    color: $darkColor;
+    outline: none;
+    border: none;
+}
+
+.container {
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    position: relative;
+
+    .content {
+        width: 400px;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .loading {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 14px;
+        background-image: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,1));
+    }
+
+    &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 1000;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 14px;
+        background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+    }
+}
+
+.stepPage {
+    width: 200px;
+    height: 100%;
+    box-sizing: border-box;
+    // box-shadow: 0px 3px 6px 0 rgba(0, 0, 0, 0.4);
     padding: 10px;
 
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 .formItem {
+    text-align: center;
     margin-bottom: 30px;
+    height: 30px;
+    width: 180px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    outline: none;
+    border: 2px solid $lightColor;
+    transition: border-color .3s ease-in;
 
-    &input {
-        height: 30px;
-        line-height: 30px;
-        box-sizing: content-box;
-        width: 200px;
-        padding: 20px;
+    &:hover,&:focus {
+        border-color: $darkColor;
     }
+}
+
+input.formItem {
+    line-height: 30px;
+    
+    padding: 0 10px;
+}
+
+button.formItem {
+    color: white;
+    letter-spacing: 5px;
+    background-color: #222222;
+}
+
+button:hover {
+    cursor: pointer;
 }

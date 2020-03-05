@@ -1,0 +1,26 @@
+.spin {
+    animation-name: spin;
+    animation-duration: 2.6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.slow {
+    animation-duration: 3.2s;
+}
+
+.fast {
+    animation-duration: 2.2s;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    50% {
+        transform: rotateZ(180deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
