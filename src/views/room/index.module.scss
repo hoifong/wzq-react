@@ -1,0 +1,30 @@
+@import '~@/styles/var.scss';
+
+.roomPage {
+    background-color: #6c6c6c;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    box-sizing: border-box;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.container {
+    @include card-style;
+
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.footer {
+    @include card-style;
+    margin-top: 10px;
+    height: 100px;
+}
