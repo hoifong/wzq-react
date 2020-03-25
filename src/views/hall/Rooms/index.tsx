@@ -47,61 +47,6 @@ const Rooms: React.FC<RoomsProps> = ({rooms, players}) => {
     )
 }
 
-// const data: Room[] = [
-//     {
-//         id: '1',
-//         host: 'hoifong',
-//         roomState: 0,
-//         whiteSide: 'hoifong',
-//         blackSide: 'yuanyuan',
-//         startTime: '2017-8-12',
-//         config: {
-//             boardSize: 25,
-//             firstMove: 1,
-//             maxTimeout: 3000
-//         }
-//     },
-//     {
-//         id: '2',
-//         host: 'hoifong',
-//         roomState: 0,
-//         whiteSide: 'hoifong',
-//         blackSide: 'yuanyuan',
-//         startTime: '2017-8-12',
-//         config: {
-//             boardSize: 25,
-//             firstMove: 1,
-//             maxTimeout: 3000
-//         }
-//     },
-//     {
-//         id: '3',
-//         host: 'hoifong',
-//         roomState: 0,
-//         whiteSide: 'hoifong',
-//         blackSide: 'yuanyuan',
-//         startTime: '2017-8-12',
-//         config: {
-//             boardSize: 25,
-//             firstMove: 1,
-//             maxTimeout: 3000
-//         }
-//     },
-//     {
-//         id: '4',
-//         host: 'hoifong',
-//         roomState: 0,
-//         whiteSide: 'hoifong',
-//         blackSide: 'yuanyuan',
-//         startTime: '2017-8-12',
-//         config: {
-//             boardSize: 25,
-//             firstMove: 1,
-//             maxTimeout: 3000
-//         }
-//     }
-// ]
-
 export default () => {
     const [data, setData] = useState<HallState>({
         players: [],

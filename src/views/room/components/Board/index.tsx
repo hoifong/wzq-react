@@ -1,9 +1,8 @@
 import React from 'react';
-import Two, { Vector } from 'two.js'
+import Two from 'two.js'
 import { Room, Player, RoomConfig, Point } from '@/types/models';
 import styles from './index.module.scss';
 import { PieceRadius } from '@/utils/consts';
-import { throttle } from '@/utils/tools';
 
 interface BoardProps {
     data: Room
@@ -39,10 +38,6 @@ class Board extends React.Component<BoardProps> {
         maxTimeout: 30
     }
 
-    constructor(props: BoardProps) {
-        super(props);
-    }
-
     componentDidMount() {
         this.initContext();
         this.initBoard();
@@ -73,6 +68,7 @@ class Board extends React.Component<BoardProps> {
         }
     }
 
+    //  初始化棋盘
     initBoard() {
         const context = this.context;
 
@@ -155,6 +151,7 @@ class Board extends React.Component<BoardProps> {
 
     }
 
+    //  鼠标移动
     handleCanvasMouseMove: any = (e: MouseEvent) => {
         const cellSize=this.cellSize;
         const [x, y] = this.getCursorPos(e.offsetX, e.offsetY);
@@ -166,25 +163,36 @@ class Board extends React.Component<BoardProps> {
         this.context.update();
     }
 
+    //  鼠标移出
     handleCanvasMouseMoveOut = () => {
         this.myPiece.translation.set(-PieceRadius, -PieceRadius);
         this.context.update();
     }
 
+    //  鼠标点击
     handleCanvasMouseClick: any = (e: MouseEvent) => {
         const [x, y] = this.getCursorPos(e.offsetX, e.offsetY);
 
+        console.log(x, y);
         /**
          * 落子
          */
     }
 
     pieceAble(x: number, y: number) {
-        if (x < 0 || x >= this.config.boardSize || y < 0 || y >= this.config.boardSize) {
+        //  出界
+        if (x < 0 || x > this.config.boardSize || y < 0 || y > this.config.boardSize) {
             return false;
         }
 
-        return this.whiteSteps.findIndex(t => x===t.x && y===t.y) === -1 && this.blackSteps.findIndex(t => x === t.x && y === t.y) === -1;
+        //  已存在棋子
+        if (this.whiteSteps.findIndex(t => x===t.x && y===t.y) !== -1 || this.blackSteps.findIndex(t => x === t.x && y === t.y) !== -1) {
+            return false;
+        }
+
+        //  已结束
+
+        return true;
     }
 
     drawAPiece(pos: Point, type: 'black'|'white') {
